@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BNC 建橋雲智 · 每週線上說明會</title>
+<meta name="description" content="從「傳統引薦」到「跨境建橋」，重塑商務生態的獲利新標準。每週四線上說明會，免費報名。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #0B1420; }
+  * { box-sizing: border-box; }
+  a { -webkit-tap-highlight-color: transparent; }
+  @keyframes bncFadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes bncFade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes bncDrift { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* 捲動後浮現的頂端列 */
+  #bncStickyBar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(11,20,32,0.92);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transform: translateY(-100%);
+    transition: transform 0.35s ease;
+  }
+  #bncStickyBar.is-visible { transform: translateY(0); }
+
+  .bnc-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .bnc-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); }
+  .bnc-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .bnc-grid-cred { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); }
+
+  /* 行動裝置斷點 */
+  @media (max-width: 900px) {
+    .bnc-grid-3 { grid-template-columns: 1fr; gap: 20px; }
+    .bnc-grid-2 { grid-template-columns: 1fr; }
+    .bnc-grid-cred { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .bnc-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .bnc-grid-cred { grid-template-columns: 1fr; }
+    .bnc-hero { padding: 100px 6vw 64px !important; }
+    .bnc-section { padding-top: 72px !important; padding-bottom: 72px !important; }
+    .bnc-cta-btn { width: 100%; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+  a:focus-visible { outline: 2px solid #E8C766; outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<div style="font-family:'Noto Sans TC',sans-serif;background:#0B1420;color:#F5EFE4;width:100%;overflow-x:hidden;">
+
+  <!-- 頂端浮動列 -->
+  <div id="bncStickyBar">
+    <div style="max-width:1200px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+      <div style="font-family:'Noto Serif TC',serif;font-weight:700;font-size:17px;letter-spacing:1px;color:#F5EFE4;">BNC <span style="color:#C9A227;">建橋雲智</span></div>
+      <a href="https://us06web.zoom.us/meeting/register/OZEikXbKQWCoT4ar5EydKQ" target="_blank" rel="noopener" style="background:#C9A227;color:#0B1420;font-weight:700;font-size:14px;padding:10px 22px;border-radius:2px;text-decoration:none;letter-spacing:0.5px;white-space:nowrap;">立即報名 →</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="bnc-hero" style="position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 6vw 80px;background:radial-gradient(ellipse 80% 60% at 20% 0%, #1a2b3f 0%, #0B1420 55%), #0B1420;overflow:hidden;">
+    <svg style="position:absolute;bottom:-2%;left:0;width:160%;opacity:0.55;pointer-events:none;" viewBox="0 0 1600 340" fill="none" aria-hidden="true">
+      <path d="M0 300 Q 120 120 260 260 T 520 260 Q 640 100 800 260 T 1060 260 Q 1180 100 1340 260 T 1600 260" stroke="#C9A227" stroke-width="1.5" opacity="0.35"/>
+      <path d="M0 320 Q 120 160 260 290 T 520 290 Q 640 140 800 290 T 1060 290 Q 1180 140 1340 290 T 1600 290" stroke="#C9A227" stroke-width="1" opacity="0.18"/>
+    </svg>
+    <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;">
+      <div style="animation:bncFadeUp 0.9s ease both;">
+        <div style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(201,162,39,0.5);color:#E8C766;font-size:13px;letter-spacing:2px;padding:7px 16px;border-radius:2px;margin-bottom:28px;">每週線上說明會 · 免費報名</div>
+        <div style="font-family:'Noto Serif TC',serif;font-weight:700;font-size:15px;letter-spacing:3px;color:#8B93A1;margin-bottom:18px;">BNC 建橋雲智 · 2026</div>
+        <h1 style="font-family:'Noto Serif TC',serif;font-weight:900;font-size:clamp(34px,4.4vw,58px);line-height:1.28;margin:0 0 28px;color:#F5EFE4;">想進跨境市場，<br/>你缺的不是勇氣，<br/><span style="color:#C9A227;">是一座真正的橋。</span></h1>
+        <p style="font-size:18px;line-height:1.9;color:#C7CDD8;max-width:520px;margin:0 0 40px;">從「傳統引薦」到「跨境建橋」，重塑商務生態的獲利新標準。「2026 年，世界變快了，但做生意變難了。」</p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px;">
+          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:14px 20px;border-radius:3px;">
+            <span style="font-size:11px;color:#8B93A1;letter-spacing:1px;">活動日期</span>
+            <span style="font-weight:700;color:#F5EFE4;">8 月份　每週四</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:14px 20px;border-radius:3px;">
+            <span style="font-size:11px;color:#8B93A1;letter-spacing:1px;">時間</span>
+            <span style="font-weight:700;color:#F5EFE4;">09:30–10:30 台灣時間</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:14px 20px;border-radius:3px;">
+            <span style="font-size:11px;color:#8B93A1;letter-spacing:1px;">平台 · 費用</span>
+            <span style="font-weight:700;color:#F5EFE4;">Zoom 完全免費</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+          <a class="bnc-cta-btn" href="https://us06web.zoom.us/meeting/register/OZEikXbKQWCoT4ar5EydKQ" target="_blank" rel="noopener" style="background:#C9A227;color:#0B1420;font-weight:700;font-size:17px;padding:18px 38px;border-radius:2px;text-decoration:none;letter-spacing:0.5px;box-shadow:0 12px 30px rgba(201,162,39,0.25);">我要報名 · 立即保留席位 →</a>
+          <span style="font-size:13px;color:#8B93A1;">每場限額 50 席 · 額滿為止</span>
+        </div>
+      </div>
+      <div style="animation:bncFadeUp 1.1s ease 0.15s both;margin-top:64px;width:100%;aspect-ratio:1000/300;position:relative;">
+        <svg width="100%" height="100%" viewBox="0 0 1000 300" preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;" aria-hidden="true">
+          <defs>
+            <linearGradient id="bncCableGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#8A6B1D"></stop>
+              <stop offset="0.5" stop-color="#E8C766"></stop>
+              <stop offset="1" stop-color="#8A6B1D"></stop>
+            </linearGradient>
+          </defs>
+          <line x1="70" y1="222" x2="930" y2="222" stroke="#C9A227" stroke-width="2"></line>
+          <line x1="70" y1="230" x2="930" y2="230" stroke="rgba(201,162,39,0.4)" stroke-width="1"></line>
+          <path d="M350,40 L120,222" fill="none" stroke="#C9A227" stroke-width="1.3"></path>
+          <path d="M650,40 L880,222" fill="none" stroke="#C9A227" stroke-width="1.3"></path>
+          <path d="M350,40 Q500,235 650,40" fill="none" stroke="url(#bncCableGrad)" stroke-width="1.6"></path>
+          <g stroke="#C9A227" stroke-width="1.1">
+            <line x1="130" y1="222" x2="146" y2="55"></line>
+            <line x1="155" y1="222" x2="164" y2="70"></line>
+            <line x1="180" y1="222" x2="184" y2="88"></line>
+            <line x1="205" y1="222" x2="208" y2="104"></line>
+            <line x1="230" y1="222" x2="230" y2="120"></line>
+            <line x1="255" y1="222" x2="254" y2="135"></line>
+            <line x1="280" y1="222" x2="279" y2="148"></line>
+            <line x1="305" y1="222" x2="304" y2="160"></line>
+            <line x1="330" y1="222" x2="329" y2="172"></line>
+            <line x1="400" y1="222" x2="399" y2="182"></line>
+            <line x1="430" y1="222" x2="429" y2="200"></line>
+            <line x1="460" y1="222" x2="459" y2="213"></line>
+            <line x1="500" y1="222" x2="500" y2="219"></line>
+            <line x1="540" y1="222" x2="541" y2="213"></line>
+            <line x1="570" y1="222" x2="571" y2="200"></line>
+            <line x1="600" y1="222" x2="601" y2="182"></line>
+            <line x1="670" y1="222" x2="671" y2="172"></line>
+            <line x1="695" y1="222" x2="696" y2="160"></line>
+            <line x1="720" y1="222" x2="721" y2="148"></line>
+            <line x1="745" y1="222" x2="746" y2="135"></line>
+            <line x1="770" y1="222" x2="770" y2="120"></line>
+            <line x1="795" y1="222" x2="792" y2="104"></line>
+            <line x1="820" y1="222" x2="816" y2="88"></line>
+            <line x1="845" y1="222" x2="836" y2="70"></line>
+            <line x1="870" y1="222" x2="854" y2="55"></line>
+          </g>
+          <g stroke="#C9A227" stroke-width="2.4" fill="none">
+            <path d="M300,222 L350,40 L400,222"></path>
+            <path d="M600,222 L650,40 L700,222"></path>
+          </g>
+          <g stroke="#C9A227" stroke-width="1.4">
+            <line x1="317" y1="150" x2="383" y2="150"></line>
+            <line x1="617" y1="150" x2="683" y2="150"></line>
+            <line x1="326" y1="222" x2="374" y2="150"></line>
+            <line x1="374" y1="222" x2="326" y2="150"></line>
+            <line x1="626" y1="222" x2="674" y2="150"></line>
+            <line x1="674" y1="222" x2="626" y2="150"></line>
+          </g>
+          <path d="M755 95 L761 108 L774 111 L761 114 L755 127 L749 114 L736 111 L749 108 Z" fill="#E8C766"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 困境 -->
+  <section class="bnc-section" style="background:#F7F3EC;padding:110px 6vw;color:#1B2430;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:64px;">
+        <div style="font-size:13px;letter-spacing:3px;color:#B08A1E;font-weight:700;margin-bottom:14px;">CHALLENGES</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(26px,3vw,38px);margin:0;">你是否正面對這些困境？</h2>
+      </div>
+      <div class="bnc-grid-3">
+        <div style="background:#fff;border:1px solid #E4DDCB;border-radius:2px;padding:40px 32px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:700;color:#C9A227;margin-bottom:18px;">01</div>
+          <h3 style="font-size:20px;font-weight:700;margin:0 0 12px;color:#1B2430;">資訊嚴重不對稱</h3>
+          <p style="font-size:15px;line-height:1.8;color:#5B6472;margin:0;">AI 給的電話打不通，地址是假的</p>
+        </div>
+        <div style="background:#fff;border:1px solid #E4DDCB;border-radius:2px;padding:40px 32px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:700;color:#C9A227;margin-bottom:18px;">02</div>
+          <h3 style="font-size:20px;font-weight:700;margin:0 0 12px;color:#1B2430;">信任成本極高</h3>
+          <p style="font-size:15px;line-height:1.8;color:#5B6472;margin:0;">不知道誰是可靠的在地合作夥伴</p>
+        </div>
+        <div style="background:#fff;border:1px solid #E4DDCB;border-radius:2px;padding:40px 32px;">
+          <div style="font-family:'Noto Serif TC',serif;font-size:15px;font-weight:700;color:#C9A227;margin-bottom:18px;">03</div>
+          <h3 style="font-size:20px;font-weight:700;margin:0 0 12px;color:#1B2430;">橋斷在半路</h3>
+          <p style="font-size:15px;line-height:1.8;color:#5B6472;margin:0;">人還在台灣，心在對岸，卻無法落地</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 你將學到 -->
+  <section class="bnc-section" style="background:#0B1420;padding:110px 6vw;position:relative;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:64px;">
+        <div style="font-size:13px;letter-spacing:3px;color:#E8C766;font-weight:700;margin-bottom:14px;">WHAT YOU'LL LEARN</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(26px,3vw,38px);margin:0;color:#F5EFE4;">這場說明會，你將學到</h2>
+      </div>
+      <div class="bnc-grid-2">
+        <div style="background:#0F1B29;padding:38px;">
+          <h3 style="font-family:'Noto Serif TC',serif;font-size:19px;font-weight:700;color:#C9A227;margin:0 0 12px;">BNC 三步驟跨境方法論</h3>
+          <p style="font-size:15px;line-height:1.85;color:#C7CDD8;margin:0;">勘測 → 搭橋 → 通車，不飛過去也能落地</p>
+        </div>
+        <div style="background:#0F1B29;padding:38px;">
+          <h3 style="font-family:'Noto Serif TC',serif;font-size:19px;font-weight:700;color:#C9A227;margin:0 0 12px;">跨境實體資源網絡</h3>
+          <p style="font-size:15px;line-height:1.85;color:#C7CDD8;margin:0;">商會對接持續擴展、一城一雲智，完全真實商業資源</p>
+        </div>
+        <div style="background:#0F1B29;padding:38px;">
+          <h3 style="font-family:'Noto Serif TC',serif;font-size:19px;font-weight:700;color:#C9A227;margin:0 0 12px;">2027 三大金礦產業</h3>
+          <p style="font-size:15px;line-height:1.85;color:#C7CDD8;margin:0;">生物醫療 × 網紅經濟 × AI 高端實訓，提前卡位</p>
+        </div>
+        <div style="background:#0F1B29;padding:38px;">
+          <h3 style="font-family:'Noto Serif TC',serif;font-size:19px;font-weight:700;color:#C9A227;margin:0 0 12px;">創始元老 L4 方案</h3>
+          <p style="font-size:15px;line-height:1.85;color:#C7CDD8;margin:0;">限量 50 位，說明會現場獨家揭曉</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 適合對象 -->
+  <section class="bnc-section" style="background:#F7F3EC;padding:110px 6vw;color:#1B2430;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:60px;">
+        <div style="font-size:13px;letter-spacing:3px;color:#B08A1E;font-weight:700;margin-bottom:14px;">WHO IS THIS FOR</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(26px,3vw,38px);margin:0;">這場說明會適合你嗎？</h2>
+      </div>
+      <div class="bnc-grid-4">
+        <div style="text-align:center;padding:30px 16px;">
+          <div style="width:56px;height:56px;border-radius:50%;border:1.5px solid #C9A227;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#B08A1E;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2v20M2 12h20M12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"></path></svg>
+          </div>
+          <p style="font-size:14.5px;line-height:1.7;color:#3A4452;margin:0;font-weight:500;">想進軍跨境市場的台灣創業者</p>
+        </div>
+        <div style="text-align:center;padding:30px 16px;">
+          <div style="width:56px;height:56px;border-radius:50%;border:1.5px solid #C9A227;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#B08A1E;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 3v18M17 3v18M3 8h4M17 8h4M3 16h4M17 16h4"></path></svg>
+          </div>
+          <p style="font-size:14.5px;line-height:1.7;color:#3A4452;margin:0;font-weight:500;">正在發展自媒體、想打入抖音生態的人</p>
+        </div>
+        <div style="text-align:center;padding:30px 16px;">
+          <div style="width:56px;height:56px;border-radius:50%;border:1.5px solid #C9A227;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#B08A1E;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-5.2-9.5-9A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9.5 7c-2.5 3.8-9.5 9-9.5 9z"></path></svg>
+          </div>
+          <p style="font-size:14.5px;line-height:1.7;color:#3A4452;margin:0;font-weight:500;">大健康、醫療產業想跨境佈局的業者</p>
+        </div>
+        <div style="text-align:center;padding:30px 16px;">
+          <div style="width:56px;height:56px;border-radius:50%;border:1.5px solid #C9A227;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#B08A1E;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5-10-5zM2 16l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          </div>
+          <p style="font-size:14.5px;line-height:1.7;color:#3A4452;margin:0;font-weight:500;">想透過 AI 課程開創新收入的教育者</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主講人 -->
+  <section class="bnc-section" style="background:#0B1420;padding:120px 6vw;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:64px;">
+        <div style="font-size:13px;letter-spacing:3px;color:#E8C766;font-weight:700;margin-bottom:14px;">SPEAKER</div>
+        <h2 style="font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(26px,3vw,38px);margin:0;color:#F5EFE4;">主講人介紹</h2>
+      </div>
+      <div style="text-align:center;margin-bottom:44px;">
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:26px;font-weight:700;margin:0 0 8px;color:#F5EFE4;">陳建蒲（執董 Jump）</h3>
+        <p style="font-size:15px;color:#C9A227;margin:0 0 4px;">Founder · BNC 建橋雲智</p>
+        <p style="font-size:13.5px;color:#8B93A1;margin:0;">國立高雄大學 國際高階經營管理碩士（IEMBA）</p>
+      </div>
+      <div style="max-width:900px;margin:0 auto;">
+        <div class="bnc-grid-cred">
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">現職</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">國際人脈商業有限公司（台灣）<br/>執行董事</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">現任</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">台灣行銷人協會 創會理事長</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">現任</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">高雄市行銷人協會 創會理事長</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">前任</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">BNI 執行董事 高雄南區</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">建置實績</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">大高雄第一位 BNI 會員 · 親自設立超過 10 個分會</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">國際組織</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">JCI 國際青年商會 Asia Pacific Development Council (APDC) Development Officer / Trainer</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">社團領導</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">高雄高大精英國際獅子會 前會長</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">機構評核</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">通過勞動部 TTQS 訓練機構版評核</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">專業認證</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">勞動部勞動力發展署 TTQS 訓練品質系統 iCAP 證書</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">專業認證</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">高雄市工業會 訓練稽核管理師</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">專業認證</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">高雄市政府青年局 新媒體行銷管理師</div>
+          </div>
+          <div style="background:#0F1B29;padding:24px 26px;">
+            <div style="font-size:11.5px;letter-spacing:1.5px;color:#8B93A1;margin-bottom:8px;">兩岸榮銜</div>
+            <div style="font-size:15px;font-weight:600;color:#F5EFE4;line-height:1.6;">2025 成都・大灣區台青創業引領人</div>
+          </div>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:40px;font-size:14.5px;line-height:1.9;color:#8B93A1;">武漢「金銀湖杯」第十一屆海峽兩岸青年創新創業大賽 總決賽三等獎</p>
+      <p style="text-align:center;margin-top:10px;font-size:15px;color:#C7CDD8;">主持 <span style="color:#C9A227;font-weight:700;">「陳執董的商業洞察」</span> Podcast · 與兩岸知名商業人士深度對談</p>
+    </div>
+  </section>
+
+  <!-- 參加須知 -->
+  <section class="bnc-section" style="background:#14202C;padding:80px 6vw;">
+    <div style="max-width:840px;margin:0 auto;border-left:2px solid #C9A227;padding-left:36px;">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;color:#E8C766;margin:0 0 18px;">參加前請先知道 · 這是一場互動式交流</h3>
+      <p style="font-size:15px;line-height:1.95;color:#C7CDD8;margin:0 0 14px;">本說明會不是單向聽講。我們重視每一位參與者的交流品質，過程中會邀請大家<strong style="color:#F5EFE4;">開啟鏡頭</strong>、<strong style="color:#F5EFE4;">開啟麥克風發言</strong>，與執董及所有與會者互動、彼此認識。</p>
+      <p style="font-size:15px;line-height:1.95;color:#C7CDD8;margin:0;">報名前請確認你當天能配合鏡頭與發言，並準備安靜的環境與穩定的網路。</p>
+    </div>
+  </section>
+
+  <!-- 最終行動呼籲 -->
+  <section class="bnc-section" style="background:radial-gradient(ellipse 70% 100% at 50% 0%, #1a2b3f 0%, #0B1420 60%);padding:130px 6vw;text-align:center;">
+    <div style="max-width:720px;margin:0 auto;">
+      <div style="font-size:13px;letter-spacing:3px;color:#E8C766;font-weight:700;margin-bottom:18px;">立即報名 · 每場限額 50 席</div>
+      <h2 style="font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);margin:0 0 20px;color:#F5EFE4;">每週四線上說明會<br/>免費報名</h2>
+      <p style="font-size:15.5px;line-height:1.9;color:#8B93A1;margin:0 0 44px;">報名資料經審核通過後，將寄送專屬 Zoom 連結至你的信箱。<br/>點擊下方按鈕，選擇最適合你的場次，一分鐘完成報名。</p>
+      <a class="bnc-cta-btn" href="https://us06web.zoom.us/meeting/register/OZEikXbKQWCoT4ar5EydKQ" target="_blank" rel="noopener" style="display:inline-block;background:#C9A227;color:#0B1420;font-weight:700;font-size:18px;padding:20px 46px;border-radius:2px;text-decoration:none;letter-spacing:0.5px;box-shadow:0 14px 34px rgba(201,162,39,0.28);">我要報名 · 立即保留席位 →</a>
+      <p style="font-size:13px;color:#5B6472;margin-top:30px;">本活動完全免費 · 每場限額 50 席 · 額滿為止<br/>報名不代表錄取，審核通過後將以 Email 通知並附上專屬連結</p>
+    </div>
+  </section>
+
+  <footer style="background:#0B1420;border-top:1px solid rgba(255,255,255,0.08);padding:36px 6vw;text-align:center;">
+    <p style="font-size:13px;color:#8B93A1;margin:0 0 16px;">主辦單位｜國際人脈商業有限公司</p>
+    <p style="font-size:12.5px;line-height:1.9;color:#5B6472;margin:0 0 10px;">報名所提供之個人資料，僅用於本說明會之報名審核、席次通知與活動聯繫，保存至活動結束後一年。您可依個人資料保護法規定，隨時來信要求查詢、更正或刪除。</p>
+    <p style="font-size:12.5px;color:#5B6472;margin:0;">© 2026 BNC 建橋雲智 · 台灣對接世界 · 一城一雲智</p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var bar = document.getElementById('bncStickyBar');
+  var ticking = false;
+  function update() {
+    if (window.scrollY > window.innerHeight * 0.7) {
+      bar.classList.add('is-visible');
+    } else {
+      bar.classList.remove('is-visible');
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
+})();
+</script>
+
+</body>
+</html>
