@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>每週線上說明會 — BNC 國際人脈商業建橋網絡</title>
+<meta name="description" content="每週四線上說明會，免費參加。談跨境商務的資訊落差、信任成本，以及 BNC 的三步驟方法。主辦：國際人脈商業有限公司。">
+<meta name="theme-color" content="#F2F4F6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1114" media="(prefers-color-scheme: dark)">
+<style>
+  /* ── 設計權杖 ───────────────────────────────────────────── */
+  :root{
+    --bg:#F2F4F6; --surface:#FFFFFF; --fill:#E9ECEF; --fill-2:#F0F2F4; --seg-on:#FFFFFF;
+    --ink:#111418; --ink-2:#5A646E; --ink-3:#8A939C;
+    --sep:rgba(17,20,24,.12); --edge:rgba(17,20,24,.08);
+    --accent:#14618C; --on-accent:#FFFFFF; --accent-tint:#E4EEF5;
+    --ok:#2C7349; --ok-tint:#E8F4EC;
+    --warn:#8A5A12; --warn-tint:#FAF0DE;
+    --danger:#C0392B; --danger-tint:#FBEDEB;
+    --hero-1:#E8EFF4; --hero-2:#D6E4EE;
+    --bar:rgba(242,244,246,.72);
+    --shadow-s:0 1px 3px rgba(0,0,0,.10),0 0 0 .5px rgba(0,0,0,.04);
+    --shadow-l:0 8px 28px rgba(17,20,24,.10);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0E1114; --surface:#191D22; --fill:#252A30; --fill-2:#22272C; --seg-on:#3A4147;
+      --ink:#E9EDF1; --ink-2:#A6AFB8; --ink-3:#79828B;
+      --sep:rgba(233,237,241,.13); --edge:rgba(0,0,0,.4);
+      --accent:#78B7DF; --on-accent:#0E1114; --accent-tint:#16303F;
+      --ok:#7ACF98; --ok-tint:#18301F;
+      --warn:#DDB268; --warn-tint:#2E2515;
+      --danger:#FF8577; --danger-tint:#3A1F1C;
+      --hero-1:#101A21; --hero-2:#13252F;
+      --bar:rgba(14,17,20,.72);
+      --shadow-s:0 1px 3px rgba(0,0,0,.5),0 0 0 .5px rgba(255,255,255,.06);
+      --shadow-l:0 8px 28px rgba(0,0,0,.55);
+    }
+  }
+  /* 高對比：分隔線加深、群組加實邊框 */
+  @media (prefers-contrast:more){
+    :root{--sep:rgba(17,20,24,.38); --ink-2:#3C454D; --ink-3:#5A646C}
+    .group,.card,.steps,details.legal,.seg{outline:1px solid var(--ink-3)}
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro TC","PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    font-size:1.0625rem; line-height:1.7; color:var(--ink); background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent); -webkit-tap-highlight-color:transparent}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:6px}
+  .wrap{max-width:42.5rem; margin:0 auto; padding:0 1.25rem}
+  .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+  /* ── 浮動頂列（半透明材質，內容自底下捲過）───────────────── */
+  .bar{
+    position:fixed; inset:0 0 auto; z-index:60;
+    background:var(--bar);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    backdrop-filter:saturate(180%) blur(20px);
+    transform:translateY(-100%);
+    padding-top:env(safe-area-inset-top);
+  }
+  .bar-in{max-width:42.5rem;margin:0 auto;padding:.55rem 1.25rem;display:flex;align-items:center;gap:.75rem}
+  .bar-brand{font-size:.9375rem;font-weight:650;letter-spacing:-.01em;white-space:nowrap;margin-right:auto}
+  .bar-brand span{color:var(--accent)}
+  /* 捲動邊緣暈染，取代 1px 分隔線 */
+  .bar::after{
+    content:"";position:absolute;left:0;right:0;top:100%;height:.75rem;pointer-events:none;
+    background:linear-gradient(var(--edge),transparent);opacity:var(--edge-on,0);
+    transition:opacity 200ms ease;
+  }
+  @media (prefers-reduced-transparency:reduce){
+    .bar{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 .5px 0 var(--sep)}
+    .bar::after{display:none}
+  }
+
+  /* ── 分段導覽（滑動指示塊只動 transform）────────────────── */
+  .seg{
+    position:relative;display:grid;grid-template-columns:repeat(4,1fr);
+    max-width:42.5rem;margin:0 auto .25rem;padding:2px;background:var(--fill);border-radius:9px;
+  }
+  .seg a{
+    position:relative;z-index:1;text-align:center;padding:.3rem 0;border-radius:7px;
+    font-size:.8125rem;font-weight:500;letter-spacing:.01em;color:var(--ink-2);text-decoration:none;
+  }
+  .seg a[aria-current="true"]{color:var(--ink);font-weight:600}
+  .seg-pill{
+    position:absolute;z-index:0;top:2px;bottom:2px;left:2px;width:calc(25% - 1px);
+    background:var(--seg-on);border-radius:7px;box-shadow:var(--shadow-s);
+  }
+
+  /* ── Hero ───────────────────────────────────────────────── */
+  .hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(180deg,var(--hero-1) 0%,var(--hero-2) 100%);
+    --bridge-h:clamp(7rem,22vw,13rem);
+    padding:5rem 1.25rem calc(var(--bridge-h) - .5rem);
+    text-align:center;
+  }
+  .eyebrow{
+    display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.06em;
+    color:var(--accent);background:var(--accent-tint);
+    padding:.25rem .7rem;border-radius:999px;margin-bottom:1rem;
+  }
+  .hero h1{
+    margin:0;font-size:clamp(2rem,7.6vw,3rem);font-weight:700;
+    line-height:1.12; letter-spacing:-.025em;
+  }
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero .lede{
+    margin:1rem auto 0;max-width:30rem;font-size:1.0625rem;line-height:1.75;
+    letter-spacing:0;color:var(--ink-2);
+  }
+  .facts{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin:1.5rem 0 1.75rem;
+  }
+  .facts div{
+    background:var(--surface);border-radius:10px;padding:.5rem .9rem;box-shadow:var(--shadow-s);
+    font-size:.9375rem;font-weight:600;letter-spacing:.005em;
+  }
+  .facts span{display:block;font-size:.75rem;font-weight:400;letter-spacing:.02em;color:var(--ink-2)}
+  .bridge{position:absolute;left:0;bottom:0;width:100%;height:var(--bridge-h);display:block}
+
+  /* ── 按鈕 ───────────────────────────────────────────────── */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+    min-height:3rem;padding:0 1.6rem;border-radius:999px;border:0;
+    background:var(--accent);color:var(--on-accent);
+    font:inherit;font-size:1.0625rem;font-weight:600;letter-spacing:.005em;
+    text-decoration:none;cursor:pointer;
+    transition:transform 100ms ease-out;
+  }
+  .btn.sm{min-height:2.25rem;padding:0 1rem;font-size:.875rem;font-weight:600}
+  .btn.ghost{background:var(--fill);color:var(--ink)}
+  .btn:active,.btn.is-press{transform:scale(.97)}
+  .btn-note{display:block;margin-top:.6rem;font-size:.8125rem;color:var(--ink-2)}
+
+  /* ── 區塊與群組 ─────────────────────────────────────────── */
+  section{scroll-margin-top:5.5rem}
+  .sec{padding:3rem 0 .5rem}
+  .sec > h2{
+    margin:0 .25rem .25rem;font-size:1.5rem;font-weight:700;
+    line-height:1.25;letter-spacing:-.015em;
+  }
+  .sec > .lead{margin:0 .25rem 1.25rem;font-size:.9375rem;line-height:1.8;color:var(--ink-2)}
+  .group{background:var(--surface);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-s)}
+  .group-foot{margin:.6rem 1rem 0;font-size:.8125rem;line-height:1.75;letter-spacing:.01em;color:var(--ink-2)}
+  .item{padding:1rem 1.1rem}
+  .item + .item{box-shadow:inset 0 .5px 0 var(--sep)}
+  .item h3{margin:0 0 .2rem;font-size:1.0625rem;font-weight:650;line-height:1.4;letter-spacing:-.005em}
+  .item p{margin:0;font-size:.9375rem;line-height:1.75;color:var(--ink-2)}
+  .item .n{
+    display:inline-block;min-width:1.5rem;margin-right:.4rem;
+    font-size:.8125rem;font-weight:700;color:var(--accent);letter-spacing:.03em;
+  }
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+  .who div{
+    background:var(--surface);border-radius:14px;box-shadow:var(--shadow-s);
+    padding:1rem;font-size:.9375rem;line-height:1.6;font-weight:500;
+  }
+  @media (max-width:26rem){.who{grid-template-columns:1fr}}
+
+  /* 主講人 */
+  .who-name{margin:0 .25rem .75rem}
+  .who-name h3{margin:0;font-size:1.375rem;font-weight:700;line-height:1.3;letter-spacing:-.015em}
+  .who-name p{margin:.15rem 0 0;font-size:.9375rem;color:var(--ink-2)}
+  .kv{display:flex;gap:1rem;align-items:baseline;padding:.8rem 1.1rem}
+  .kv + .kv{box-shadow:inset 0 .5px 0 var(--sep)}
+  .kv dt{flex:none;width:5.5rem;font-size:.8125rem;letter-spacing:.02em;color:var(--ink-2)}
+  .kv dd{margin:0;font-size:.9375rem;line-height:1.6;font-weight:500}
+
+  /* 提醒卡 */
+  .notice{
+    background:var(--warn-tint);border-radius:14px;padding:1.1rem 1.2rem;
+  }
+  .notice h3{margin:0 0 .4rem;font-size:1rem;font-weight:650;color:var(--warn);letter-spacing:-.005em}
+  .notice p{margin:0 0 .5rem;font-size:.9375rem;line-height:1.8;color:var(--ink)}
+  .notice p:last-child{margin-bottom:0}
+  .notice strong{font-weight:650}
+
+  /* 報名區 */
+  .cta{
+    margin:3rem 0 0;background:var(--surface);border-radius:18px;
+    padding:2rem 1.4rem;text-align:center;box-shadow:var(--shadow-l);
+  }
+  .cta h2{margin:0 0 .5rem;font-size:1.5rem;font-weight:700;line-height:1.25;letter-spacing:-.015em}
+  .cta p{margin:0 0 1.25rem;font-size:.9375rem;line-height:1.8;color:var(--ink-2)}
+  .cta .fine{margin:1rem 0 0;font-size:.8125rem;line-height:1.7;letter-spacing:.01em;color:var(--ink-3)}
+
+  /* ── 可展開：主辦與聲明 ─────────────────────────────────── */
+  details.legal{background:var(--surface);border-radius:14px;box-shadow:var(--shadow-s);margin-top:.5rem}
+  details.legal > summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;gap:.6rem;
+    padding:1rem 1.1rem;font-size:1rem;font-weight:600;letter-spacing:-.005em;
+    transition:transform 100ms ease-out;
+  }
+  details.legal > summary::-webkit-details-marker{display:none}
+  details.legal > summary.is-press{transform:scale(.985)}
+  .chev{flex:none;margin-left:auto;width:.75rem;height:.75rem;color:var(--ink-3)}
+  .chev svg{display:block;width:100%;height:100%}
+  .legal-clip{overflow:hidden}
+  .legal-body{padding:0 1.1rem 1.1rem}
+  .legal-body h4{margin:1rem 0 .3rem;font-size:.9375rem;font-weight:650;letter-spacing:-.005em}
+  .legal-body h4:first-child{margin-top:0}
+  .legal-body p,.legal-body li{margin:0 0 .5rem;font-size:.875rem;line-height:1.8;letter-spacing:.01em;color:var(--ink-2)}
+  .legal-body ul{margin:0 0 .5rem;padding-left:1.1rem}
+
+  footer{padding:2.5rem 0 3.5rem;text-align:center}
+  footer p{margin:0 0 .5rem;font-size:.8125rem;line-height:1.8;letter-spacing:.01em;color:var(--ink-3)}
+  footer .org{font-size:.875rem;color:var(--ink-2);font-weight:500}
+
+  /* ── 降級：減少動態 ─────────────────────────────────────── */
+  @media (prefers-reduced-motion:reduce){
+    .btn,details.legal > summary{transition:opacity 160ms ease}
+    .btn:active,.btn.is-press,details.legal > summary.is-press{transform:none;opacity:.72}
+  }
+</style>
+</head>
+<body>
+
+<!-- 浮動頂列：捲過 Hero 後以彈簧滑入，內容自底下捲過 -->
+<div class="bar" id="bar" hidden>
+  <div class="bar-in">
+    <div class="bar-brand">BNC <span>建橋網絡</span></div>
+    <a class="btn sm" data-press href="#join">報名說明會</a>
+  </div>
+  <nav class="seg" id="seg" aria-label="頁面章節">
+    <div class="seg-pill" id="segPill" aria-hidden="true"></div>
+    <a href="#learn">會談什麼</a>
+    <a href="#who">適合誰</a>
+    <a href="#speaker">主講人</a>
+    <a href="#join">報名</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="eyebrow">每週線上說明會 · 免費參加</div>
+  <h1>想進跨境市場，<br>你缺的不是勇氣，<br><em>是一座真正的橋。</em></h1>
+  <p class="lede">從傳統引薦到跨境合作，重新看待商務網絡怎麼運作。一小時，把跨境這件事講清楚。</p>
+  <div class="facts">
+    <div><span>場次</span>每週四</div>
+    <div><span>時間</span>09:30–10:30（台灣時間）</div>
+    <div><span>方式</span>Zoom 線上・免費</div>
+  </div>
+  <a class="btn" data-press href="#join">保留席位</a>
+  <span class="btn-note">每場席次有限，額滿為止</span>
+
+  <svg class="bridge" viewBox="0 0 800 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+    <g fill="none" stroke="currentColor" style="color:var(--accent)">
+      <g opacity=".22" stroke-width="1">
+        <path d="M240 32 L120 168"/><path d="M560 32 L680 168"/>
+        <path d="M240 32 Q400 190 560 32"/>
+        <path d="M128 168 V60 M152 168 V74 M176 168 V90 M200 168 V106 M224 168 V122
+                 M264 168 V136 M288 168 V148 M312 168 V158
+                 M488 168 V158 M512 168 V148 M536 168 V136
+                 M576 168 V122 M600 168 V106 M624 168 V90 M648 168 V74 M672 168 V60"/>
+      </g>
+      <g opacity=".5" stroke-width="1.6">
+        <path d="M216 168 L240 32 L264 168"/>
+        <path d="M536 168 L560 32 L584 168"/>
+        <path d="M227 100 H253 M547 100 H573"/>
+      </g>
+      <path d="M40 168 H760" opacity=".5" stroke-width="2"/>
+      <path d="M40 176 H760" opacity=".22" stroke-width="1"/>
+    </g>
+  </svg>
+</header>
+
+<main class="wrap">
+
+  <section class="sec" id="challenge">
+    <h2>你可能正在面對的三件事</h2>
+    <div class="group">
+      <div class="item"><h3><span class="n">01</span>資訊落差</h3><p>網路上查到的電話打不通、地址對不上，查證成本全部落在自己身上。</p></div>
+      <div class="item"><h3><span class="n">02</span>信任成本高</h3><p>不確定誰是可靠的在地合作對象，只能靠運氣試錯。</p></div>
+      <div class="item"><h3><span class="n">03</span>橋斷在半路</h3><p>方向想清楚了，人跟事卻銜接不起來，計畫停在出發前一步。</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="learn">
+    <h2>這場說明會會談什麼</h2>
+    <p class="lead">一小時，四個段落。談方法與判斷，不談保證。</p>
+    <div class="group">
+      <div class="item"><h3>BNC 三步驟方法</h3><p>勘測、搭橋、通車：在自己不飛過去的前提下，先把市場看懂、把人找對。</p></div>
+      <div class="item"><h3>跨境商務網絡怎麼建立</h3><p>商會與同業社群的往來經驗分享，以及一個城市要怎麼從零開始認識。</p></div>
+      <div class="item"><h3>2027 值得關注的三個產業方向</h3><p>生物醫療、內容電商、AI 應用實訓——為什麼是這三個，以及各自的門檻在哪。</p></div>
+      <div class="item"><h3>BNC 創始會員方案</h3><p>會員層級與權益說明，於說明會中完整揭露，現場不收款。</p></div>
+    </div>
+    <p class="group-foot">說明會內容為市場觀察與經驗分享。</p>
+  </section>
+
+  <section class="sec" id="who">
+    <h2>適合誰來聽</h2>
+    <div class="who">
+      <div>想把生意做到跨境市場的經營者</div>
+      <div>正在發展自媒體與內容電商的人</div>
+      <div>大健康與醫療產業想布局海外的業者</div>
+      <div>想把 AI 課程做成新收入的教育工作者</div>
+    </div>
+    <p class="group-foot">本說明會以產業別與職務為參考，沒有年齡限制。</p>
+  </section>
+
+  <section class="sec" id="speaker">
+    <h2>主講人</h2>
+    <div class="who-name">
+      <h3>陳建蒲（執董 Jump）</h3>
+      <p>國際人脈商業有限公司 執行董事</p>
+      <p>國立高雄大學 國際高階經營管理碩士（IEMBA）</p>
+    </div>
+    <dl class="group" style="margin:0">
+      <div class="kv"><dt>現任</dt><dd>台灣行銷人協會 創會理事長</dd></div>
+      <div class="kv"><dt>現任</dt><dd>社團法人高雄市行銷人協會 創會理事長</dd></div>
+      <div class="kv"><dt>現任</dt><dd>高雄市產學交流協會 理事長</dd></div>
+      <div class="kv"><dt>曾任</dt><dd>BNI 執行董事（高雄南區）</dd></div>
+      <div class="kv"><dt>曾任</dt><dd>高雄高大精英國際獅子會 會長</dd></div>
+      <div class="kv"><dt>國際組織</dt><dd>JCI 國際青年商會 Asia Pacific Development Council 　Development Officer／Trainer</dd></div>
+      <div class="kv"><dt>專業認證</dt><dd>勞動部勞動力發展署 TTQS 訓練品質系統 iCAP 證書</dd></div>
+      <div class="kv"><dt>專業認證</dt><dd>高雄市工業會 訓練稽核管理師</dd></div>
+      <div class="kv"><dt>專業認證</dt><dd>高雄市政府青年局 新媒體行銷管理師</dd></div>
+      <div class="kv"><dt>兩岸榮銜</dt><dd>2025 成都・大灣區台青創業引領人</dd></div>
+      <div class="kv"><dt>賽事成績</dt><dd>武漢「金銀湖杯」第十一屆海峽兩岸青年創新創業大賽 總決賽三等獎</dd></div>
+      <div class="kv"><dt>主持</dt><dd>「陳執董的商業洞察」Podcast</dd></div>
+    </dl>
+  </section>
+
+  <section class="sec" id="format">
+    <h2>參加前請先知道</h2>
+    <div class="notice">
+      <h3>這是互動式交流，不是單向聽講</h3>
+      <p>過程中會邀請大家<strong>開啟鏡頭</strong>、<strong>開啟麥克風發言</strong>，與主講人及其他參加者互相認識。</p>
+      <p>報名前請確認你當天能配合鏡頭與發言，並準備安靜的環境與穩定的網路。若當天不方便露臉，建議改報下一場。</p>
+    </div>
+  </section>
+
+  <section class="sec" id="join">
+    <div class="cta">
+      <h2>報名每週四說明會</h2>
+      <p>報名資料經審核後，專屬 Zoom 連結會寄到你的信箱。報名不代表錄取，審核結果一律以 Email 通知。</p>
+      <a class="btn" data-press id="joinBtn" href="https://us06web.zoom.us/meeting/register/CCOp0y4tToCD1caBx71Ywg" target="_blank" rel="noopener">前往 Zoom 完成報名</a>
+      <p class="fine">報名將在新分頁開啟 Zoom 官方報名頁。<br>本場次免費，說明會全程不收取任何費用。</p>
+    </div>
+
+    <details class="legal" id="legalOrg">
+      <summary data-press>主辦單位與聲明<span class="chev"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></summary>
+      <div class="legal-clip"><div class="legal-body">
+        <h4>主辦單位</h4>
+        <p>國際人脈商業有限公司（統一編號 59172443），地址：高雄市橋頭區成功路 197 號。本說明會由本公司獨立主辦。</p>
+        <h4>獨立性聲明</h4>
+        <p>本公司非任何大陸地區機關、法人、團體或其他機構在臺灣地區之分支機構、辦事處或代理人，未受其委託招募人員、辦理業務或代收費用。本說明會之內容、講者與所有安排均由本公司自行決定並自負其責。</p>
+        <h4>費用性質</h4>
+        <p>本場說明會免費，全程不收取任何費用，亦不於會中收款。說明會中所介紹之會員方案，如後續有意加入，將另行提供書面說明與繳費方式，不在本場次進行。因本場次不收費，無退費事宜。</p>
+        <h4>內容與議程調整</h4>
+        <p>說明會議題、時間與主講安排以主辦單位公告為準，主辦單位保留調整之權利。會中所述內容為市場觀察與經驗分享，不構成投資、稅務、法律或任何專業建議，亦不保證任何商業結果。</p>
+        <h4>參加者責任</h4>
+        <p>參加者應自行確認參加本場線上說明會不牴觸其所屬機關、公司或團體之規定。具公務、軍職或涉及職務機密身分者，請自行依所屬服務機關之規範辦理。</p>
+      </div></div>
+    </details>
+
+    <details class="legal" id="legalPrivacy">
+      <summary data-press>個人資料蒐集告知（個資法第 8 條）<span class="chev"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></summary>
+      <div class="legal-clip"><div class="legal-body">
+        <h4>蒐集者</h4>
+        <p>國際人脈商業有限公司（統一編號 59172443）。</p>
+        <h4>蒐集目的</h4>
+        <p>本說明會之報名審核、席次通知、會議連結寄送、活動聯繫與出席紀錄，以及後續活動資訊之提供。</p>
+        <h4>個人資料類別</h4>
+        <p>姓名、電子郵件、聯絡電話、任職單位與職稱，以及你於報名時主動填寫之其他欄位。</p>
+        <h4>利用期間、地區、對象及方式</h4>
+        <ul>
+          <li>期間：自蒐集之日起至活動結束後一年，或至你請求停止利用之日止。</li>
+          <li>對象：本公司及受本公司委託處理報名與會議服務之資訊服務供應商。</li>
+          <li>方式：以電子檔案及電子郵件方式進行必要之聯繫與紀錄。</li>
+          <li>地區：<strong>本說明會之報名與會議服務使用 Zoom（Zoom Communications, Inc., 美商）之平台，你所填寫之報名資料將傳輸並儲存於我國境外之伺服器。</strong>報名即表示你同意此項跨境傳輸。若你不同意，請勿於該平台填寫資料，可改以其他方式與本公司聯繫。</li>
+        </ul>
+        <h4>你的權利</h4>
+        <p>依個人資料保護法第 3 條，你得向本公司請求查詢、閱覽、製給複製本、補充或更正、停止蒐集處理利用，或請求刪除你的個人資料。行使權利請來信主辦單位聯絡信箱。</p>
+        <h4>不提供的影響</h4>
+        <p>報名欄位為審核與通知所必需；若未提供，本公司將無法完成報名審核及寄送會議連結。</p>
+      </div></div>
+    </details>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p class="org">主辦單位｜國際人脈商業有限公司（統編 59172443）</p>
+  <p>BNC 國際人脈商業建橋網絡</p>
+  <p>© 2026 國際人脈商業有限公司</p>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── 彈簧：從「畫面上當下的值」出發，可中斷、可反向、帶速度 ── */
+  function Spring(value, onFrame) {
+    this.x = value; this.v = 0; this.target = value;
+    this.damping = 1; this.response = 0.35;
+    this.onFrame = onFrame; this.raf = 0;
+  }
+  Spring.prototype.set = function (target, opts) {
+    opts = opts || {};
+    if (opts.damping != null) this.damping = opts.damping;
+    if (opts.response != null) this.response = opts.response;
+    if (opts.velocity != null) this.v = opts.velocity;   // 手勢速度接手，不歸零
+    this.target = target;
+    if (reduce) { this.x = target; this.v = 0; this.onFrame(this.x); return; }
+    if (!this.raf) { this.last = performance.now(); this.tick(); }
+  };
+  Spring.prototype.tick = function () {
+    var self = this;
+    this.raf = requestAnimationFrame(function (now) {
+      var dt = Math.min((now - self.last) / 1000, 1 / 30);
+      self.last = now;
+      var w = 2 * Math.PI / self.response, z = self.damping;
+      // 半隱式積分，dt 再細分以維持穩定
+      var steps = Math.max(1, Math.ceil(dt / (1 / 240))), h = dt / steps, i;
+      for (i = 0; i < steps; i++) {
+        var a = -w * w * (self.x - self.target) - 2 * z * w * self.v;
+        self.v += a * h;
+        self.x += self.v * h;
+      }
+      self.onFrame(self.x);
+      if (Math.abs(self.x - self.target) < 0.01 && Math.abs(self.v) < 0.05) {
+        self.x = self.target; self.v = 0; self.onFrame(self.x); self.raf = 0;
+      } else {
+        self.tick();
+      }
+    });
+  };
+
+  /* ── 按下當下就有回饋（不等放開）───────────────────────── */
+  document.addEventListener('pointerdown', function (e) {
+    var el = e.target.closest('[data-press]');
+    if (!el) return;
+    el.classList.add('is-press');
+    var off = function () {
+      el.classList.remove('is-press');
+      el.removeEventListener('pointerup', off);
+      el.removeEventListener('pointercancel', off);
+      el.removeEventListener('pointerleave', off);
+    };
+    el.addEventListener('pointerup', off);
+    el.addEventListener('pointercancel', off);
+    el.addEventListener('pointerleave', off);
+  }, { passive: true });
+
+  /* ── 頂列：捲過 Hero 後彈簧滑入，退場走同一條路徑 ───────── */
+  var bar = document.getElementById('bar');
+  var hero = document.querySelector('.hero');
+  bar.hidden = false;
+  var barSpring = new Spring(-100, function (p) {
+    bar.style.transform = 'translateY(' + p + '%)';
+    bar.style.pointerEvents = p > -60 ? 'auto' : 'none';
+  });
+  barSpring.onFrame(-100);
+
+  var shown = false;
+  function onScroll() {
+    var trigger = hero.offsetHeight * 0.62;
+    var want = window.scrollY > trigger;
+    if (want !== shown) {
+      shown = want;
+      barSpring.set(want ? 0 : -100, { damping: 1.0, response: 0.36 });
+    }
+    // 捲動邊緣暈染：有內容捲到頂列底下才顯示
+    bar.style.setProperty('--edge-on', window.scrollY > trigger + 8 ? '1' : '0');
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(function () { onScroll(); ticking = false; }); }
+  }, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll();
+
+  /* ── 分段導覽：指示塊只動 transform，跟著捲動位置走 ─────── */
+  var seg = document.getElementById('seg');
+  var pill = document.getElementById('segPill');
+  var links = Array.prototype.slice.call(seg.querySelectorAll('a'));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var pillSpring = new Spring(0, function (i) {
+    pill.style.transform = 'translateX(' + (i * 100) + '%)';
+  });
+  var active = -1;
+  function setActive(i) {
+    if (i === active) return;
+    active = i;
+    links.forEach(function (a, k) { a.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+    pillSpring.set(i, { damping: 1.0, response: 0.32 });
+  }
+  function onSpy() {
+    var line = window.scrollY + window.innerHeight * 0.32, idx = 0, k;
+    for (k = 0; k < targets.length; k++) {
+      if (targets[k] && targets[k].getBoundingClientRect().top + window.scrollY <= line) idx = k;
+    }
+    setActive(idx);
+  }
+  var spying = false;
+  window.addEventListener('scroll', function () {
+    if (!spying) { spying = true; requestAnimationFrame(function () { onSpy(); spying = false; }); }
+  }, { passive: true });
+  onSpy();
+
+  /* ── 可展開區塊：內容從上緣滑出，高度與位移同時動 ───────── */
+  Array.prototype.forEach.call(document.querySelectorAll('details.legal'), function (d) {
+    var clip = d.querySelector('.legal-clip');
+    var body = d.querySelector('.legal-body');
+    var chev = d.querySelector('.chev');
+    var open = false;
+
+    clip.style.height = '0px';
+    var s = new Spring(0, function (p) {              // p: 0 收合 → 1 展開
+      var h = body.offsetHeight;
+      clip.style.height = (h * Math.max(0, p)) + 'px';
+      body.style.transform = 'translateY(' + ((p - 1) * -8) + 'px)';
+      body.style.opacity = String(Math.max(0, Math.min(1, p * 1.4)));
+      chev.style.transform = 'rotate(' + (p * 180) + 'deg)';
+      if (p >= 0.999) clip.style.height = 'auto';
+    });
+    s.onFrame(0);
+
+    d.querySelector('summary').addEventListener('click', function (e) {
+      e.preventDefault();
+      open = !open;
+      if (open) { d.open = true; }
+      if (clip.style.height === 'auto') clip.style.height = body.offsetHeight + 'px';
+      s.set(open ? 1 : 0, { damping: 1.0, response: 0.34 });   // 中途再按可直接反向
+      if (!open) {
+        setTimeout(function () { if (!open) d.open = false; }, reduce ? 0 : 420);
+      }
+      d.querySelector('summary').setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    d.querySelector('summary').setAttribute('aria-expanded', 'false');
+  });
+})();
+</script>
+
+</body>
+</html>
